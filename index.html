@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAGS - Menu</title>
+    <style>
+        html { scroll-behavior: smooth; }
+        body {
+            background-color: #1a0f0a;
+            background-image: url('https://www.transparenttextures.com/patterns/dark-leather.png');
+            color: #f1d297;
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .a5-sheet {
+            max-width: 480px; 
+            width: 95%;
+            margin: 0 auto 40px auto;
+            position: relative;
+        }
+
+        /* SAUCE-ICING STYLE BORDER (SOFT GOLD) */
+        .icing-border {
+            border: 12px solid #FFD700;
+            border-radius: 10px;
+            box-shadow: 
+                0 0 15px rgba(255, 215, 0, 0.3),
+                inset 0 0 10px rgba(0,0,0,0.5),
+                0 10px 40px rgba(0,0,0,0.8);
+            overflow: hidden;
+            box-sizing: border-box; 
+        }
+
+        /* --- COVER PAGE --- */
+        .cover-page {
+            width: 100%;
+            aspect-ratio: 1 / 1.414; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background: radial-gradient(circle, rgba(20, 10, 5, 0.98), #1a0f0a);
+        }
+        
+        .torn-paper-texture {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 88%;
+            height: 94%;
+            background: #140a05; 
+            background-image: url('https://www.transparenttextures.com/patterns/dark-leather.png');
+            border: 3px solid #8e6d3d;
+            clip-path: polygon(2% 2%, 98% 0%, 100% 15%, 97% 35%, 100% 50%, 98% 75%, 100% 100%, 80% 98%, 50% 100%, 20% 98%, 0% 100%, 2% 75%, 0% 50%, 3% 25%);
+            z-index: 1;
+        }
+
+        .natural-popup {
+            position: absolute;
+            z-index: 4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #f1d297;
+        }
+
+        .top-left-qr { left: 8%; top: 6%; }
+        .top-right-partners { right: 8%; top: 6%; gap: 12px; }
+
+        .partner-logo-small { width: 32px; height: auto; margin-bottom: 2px; }
+        .qr-icon-box {
+            width: 60px; height: 60px; border: 2px solid #ffcc66;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(255, 204, 102, 0.05); margin-bottom: 4px;
+        }
+
+        .cover-content { 
+            z-index: 2; display: flex; flex-direction: column; 
+            align-items: center; transform: scale(0.85);
+        }
+        
+        .special-badge { font-family: 'Brush Script MT', cursive; color: white; font-size: 2.2em; margin-bottom: -10px; }
+        .main-menu-text { font-size: 3.2em; color: #ffcc66; margin: 0; text-transform: uppercase; letter-spacing: 4px; }
+        .cover-logo {
+            width: 160px; height: auto; border-radius: 50%; border: 5px solid #ffcc66;
+            box-shadow: 0 0 25px rgba(255, 204, 102, 0.4), 0 0 25px rgba(0,0,0,0.8); margin: 15px 0;
+        }
+        .brand-name-tags { font-size: 4em; color: #ffcc66; font-weight: bold; letter-spacing: 12px; text-shadow: 2px 2px 10px rgba(0,0,0,1); margin-bottom: 5px; }
+        .tagline { font-size: 1.2em; color: #f1d297; font-style: italic; letter-spacing: 2px; margin-bottom: 25px; opacity: 0.9; }
+
+        .cover-bulk-order {
+            background: rgba(255, 204, 102, 0.1); border: 1px dashed #ffcc66;
+            border-radius: 12px; padding: 10px 20px; color: #f1d297; font-size: 0.8em; text-align: center;
+        }
+        .cover-bulk-number { display: block; font-size: 1.4em; color: white; font-weight: bold; margin-top: 5px; }
+
+        /* --- MENU CONTENT SECTION --- */
+        .menu-container { background: rgba(20, 10, 5, 0.98); text-align: center; }
+        .menu-padding { padding: 30px 25px 0 25px; }
+
+        h2 { color: #ffcc66; border-bottom: 1px solid #5d462a; padding-bottom: 5px; font-size: 1.1em; margin-top: 30px; text-transform: uppercase; letter-spacing: 1px; }
+        .menu-item { display: flex; justify-content: space-between; font-weight: bold; margin-top: 15px; font-size: 0.95em; }
+        .item-name { color: #fff; text-align: left; }
+        .price { color: #ffcc66; padding-left: 10px; }
+        .description { font-size: 0.75em; color: #a08870; margin-bottom: 10px; font-style: italic; text-align: left; line-height: 1.3; }
+        
+        .grid-container { display: flex; gap: 15px; text-align: left; margin-bottom: 20px; }
+        .grid-section { flex: 1; }
+        .grid-section h2 { font-size: 1em; }
+        
+        .star::after { content: "★ "; color: #ffcc66; margin-left: 4px; }
+
+        .announcement-bar {
+            background: rgba(255, 204, 102, 0.1); border: 1px dashed #8e6d3d;
+            border-radius: 10px; padding: 10px; margin: 20px 0;
+            font-size: 0.8em; color: #ffcc66; font-style: italic; line-height: 1.4;
+        }
+
+        /* FOOTER IMAGE - FULL WIDTH */
+        .img-wrapper-bottom {
+            margin-top: 30px;
+            width: 100%;
+            border-top: 1px solid #8e6d3d;
+            overflow: hidden;
+        }
+        .footer-img-large { width: 100%; height: auto; display: block; }
+    </style>
+</head>
+<body>
+
+<div class="a5-sheet">
+    <div class="cover-page icing-border">
+        <div class="torn-paper-texture"></div>
+        <div class="natural-popup top-left-qr">
+            <div class="qr-icon-box">
+                <img src="https://i.postimg.cc/ZntjJX6x/Feedback.png" style="width:100%; height:100%;" alt="QR">
+            </div>
+            <span style="font-size: 0.6em; font-weight: bold;">FEEDBACK</span>
+        </div>
+        <div class="natural-popup top-right-partners">
+            <div style="display:flex; flex-direction:column; align-items:center;">
+                <img src="https://cdn.worldvectorlogo.com/logos/swiggy-1.svg" class="partner-logo-small" alt="Swiggy">
+                <span style="font-size: 0.55em;">SWIGGY</span>
+            </div>
+            <div style="display:flex; flex-direction:column; align-items:center;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Zomato_logo.png" class="partner-logo-small" alt="Zomato">
+                <span style="font-size: 0.55em;">ZOMATO</span>
+            </div>
+        </div>
+        <div class="cover-content">
+            <span class="special-badge">Delicious</span>
+            <h1 class="main-menu-text">Food Menu</h1>
+            <img src="https://i.postimg.cc/18y39Z9Y/Logo.png" class="cover-logo" alt="TAGS Logo">
+            <div class="brand-name-tags">TAGS</div>
+            <div class="tagline">Food nahi emotion hai</div>
+            <div class="cover-bulk-order">
+                FOR BULK ORDERS & EVENTS
+                <span class="cover-bulk-number">+91 92179 87849</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="a5-sheet">
+    <div class="menu-container icing-border">
+
+    <h2>Chole Kulcha Specials</h2>
+    <div class="menu-item"><span class="star item-name">Classic Chole Kulcha</span> <span class="price">₹100</span></div>
+    <div class="description">Golden kulcha served with spicy Punjabi chole.</div>
+    <div class="description">2 kulchas + Chole + Salad.</div>
+
+    <div class="menu-item"><span class="item-name">Garlic Kulcha with Chole</span> <span class="price">₹110</span></div>
+    <div class="description">Infused with prominent garlic flavour and chatpate chole.</div>
+    <div class="description">2 Garlic kulchas + Chole + Salad.</div>
+    
+    <div class="menu-item"><span class="item-name">Butter Chole Kulcha</span> <span class="price">₹110</span></div>
+    <div class="description">Soft kulcha loaded with rich butter & chole.</div>
+    <div class="description">2 Butter kulchas + Chole + Salad.</div>
+
+    <h2>Stuffed Kulcha</h2>
+    
+    <div class="menu-item"><span class="star item-name">Paneer Stuffed</span> <span class="price">₹110</span></div>
+    <div class="description">Soft kulcha with fresh paneer filling.</div>
+
+    <div class="menu-item"><span class="star item-name">Chole Stuffed</span> <span class="price">₹100</span></div>
+    <div class="description">Golden-crisp kulcha heart-stuffed with spicy Punjabi chole.</div>
+
+    <div class="menu-item"><span class="item-name">Aloo Stuffed</span> <span class="price">₹90</span></div>
+    <div class="description">Desi aloo masala stuffed in crispy kulcha.</div>
+
+    <div class="menu-item"><span class="item-name">Panner Pizza Stuffed Kulcha</span> <span class="price">₹100</span></div>
+    <div class="description">Kulcha stuffed with panner, cheezy pizza ingredients and classic seasoning.</div>
+
+    <div class="menu-item"><span class="item-name">Veg Pizza Stuffed Kulcha</span> <span class="price">₹90</span></div>
+    <div class="description">Kulcha with cheesy pizza ingredients and classic seasoning.</div>
+    
+    <div class="menu-item"><span class="item-name">Cheese Melt Kulcha</span> <span class="price">₹70</span></div>
+    <div class="description">Kulcha filled with flavourful cheese stuffing.</div>
+
+    <h2>Rice Specials</h2>
+    <div class="menu-item"><span class="item-name">Rice and Chole</span> <span class="price">₹100</span></div>
+    <div class="description">Steaming rice with spicy Punjabi chole.</div>
+    
+    <div class="menu-item"><span class="star item-name">Rice and Paneer</span> <span class="price">₹120</span></div>
+    <div class="description">Comfort bowl with rich paneer gravy.</div>
+
+    <h2>Maggi Mania</h2>
+    <div class="menu-item"><span class="item-name">Masala Maggi</span> <span class="price">₹60</span></div>
+    <div class="menu-item"><span class="item-name">Vegetable Maggi</span> <span class="price">₹70</span></div>
+    <div class="menu-item"><span class="star item-name">Peri - Peri Maggi</span> <span class="price">₹60</span></div>
+
+    <div class="grid-container">
+        <div class="grid-section">
+            <h2>Add Ons</h2>
+            <div class="menu-item"><span>Plain Kulcha</span> <span class="price">₹30</span></div>
+            <div class="menu-item"><span>Masala Chole</span> <span class="price">₹50</span></div>
+            <div class="menu-item"><span>Extra Salad</span> <span class="price">₹20</span></div>
+            <div class="menu-item"><span>Extra Cheese</span> <span class="price">₹30</span></div>
+            <div class="menu-item"><span>Boondi Raita</span> <span class="price">₹30</span></div>
+            <div class="menu-item"><span>Veg Raita</span> <span class="price">₹40</span></div>    
+        </div>
+        <div class="grid-section">
+            <h2>Drinks</h2>
+            <div class="menu-item"><span>Jaljeera</span> <span class="price">₹50</span></div>
+            <div class="menu-item"><span>Buttermilk</span> <span class="price">₹40</span></div>
+        </div>
+    </div>
+
+    <div class="announcement-bar"><strong>Note:</strong> *Add-Ons are available on both Kulchas and Maggi.</div>
+
+    <div class="img-wrapper-bottom">
+        <img src="https://i.postimg.cc/8PqrMjJs/Foood.png" class="footer-img-large" alt="Food Photo">
+    </div>
+
+</div>
+
+
+</body>
+</html>
